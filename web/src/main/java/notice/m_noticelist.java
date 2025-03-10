@@ -20,17 +20,24 @@ public class m_noticelist {
 
 	m_dbinfo db = new m_dbinfo();
 	
+	int spage = 0;//첫번째 배열값
+	int ea = 3;//한 페이지당 출력될 게시물의 수
 	
-	public m_noticelist() {
-
+	
+	
+	
+	public m_noticelist(int s) {
+		this.spage=s; //sql 쿼리 limit를 사용하기 위함
 	}
 
 	public ArrayList<ArrayList<String>> db_data() {
 		try {
 			this.con = db.getConnection();
 			//필요한 컬럼만 지정해서 select로 가져오고 desc 정렬함
-			this.sql = "select nidx, subject, writer, nview, ndate from notice order by nidx desc";
+			this.sql = "select nidx, subject, writer, nview, ndate,(select count(*) from notice )as total from notice order by nidx desc limit ?,?";
 			this.ps = this.con.prepareStatement(this.sql);
+			this.ps.setInt(1, this.spage);
+			this.ps.setInt(2, this.ea);
 			this.rs = this.ps.executeQuery();//select~ 문
 			this.alldata = new ArrayList<ArrayList<String>>();
 			
@@ -42,6 +49,7 @@ public class m_noticelist {
 				this.data.add(this.rs.getString("writer"));
 				this.data.add(this.rs.getString("nview"));
 				this.data.add(this.rs.getString("ndate"));
+				this.data.add(this.rs.getString("total")); // 게시물 전체 갯수를 저장한 배열값
 				this.alldata.add(this.data);
 			}
 //			System.out.println(this.alldata);

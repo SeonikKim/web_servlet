@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쿠폰 등록 페이지</title>
+</head>
+<body>
+
+<form id="frm" method="post" action="./couponok.do">
+<p style="
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+">
+아이디 : <input type="text" name="uid">
+</p>
+
+<p style="
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+">
+쿠폰번호 : <input type="text" name="cpnum">
+</p>
+<p>
+<label style="padding-left: 20px;"><input type="checkbox" name="ckbox">광고 수신 동의(필수)</label><br>
+</p>
+<p style="
+    width: 300px;
+    display: flex;
+    justify-content: center;
+">
+<input type="button" value="예매하기" onclick="res()" style="background: #156082; color: #fff; border: 2px solid #000; padding: 6px; font-weight: bold;">
+</p>
+
+
+</form>
+
+</body>
+<script>
+function res(){
+	var uid = frm.uid.value;
+	var cpnum = frm.cpnum.value;
+// 	console.log(uid + cpnum + ckbox);
+	
+	if(uid == ""){
+		alert("아이디를 입력하세요");
+		frm.uid.focus();
+	}
+	else if(cpnum == ""){
+		alert("쿠폰번호를 입력하세요");
+		frm.cpnum.focus();
+	}
+	else if(frm.ckbox.checked ==false){
+		alert("필수항목 체크하세요");
+		frm.ckbox.focus();
+	}
+	else{
+		frm.submit();
+	}
+}
+
+</script>
+</html>

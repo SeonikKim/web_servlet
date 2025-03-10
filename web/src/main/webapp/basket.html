@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+장바구니<br>
+<form id="frm" method="post"action="http://172.30.1.95:8080/web/paylist.do">
+<div>
+<input onclick="addproduct(this.checked)" type="checkbox" name="ck" value="프리즘코리아 CP55G5,399000"><span name ="pname">프리즘코리아 CP55G5</span> <span name="pprice">399000</span><br>
+<input onclick="addproduct(this.checked)"  type="checkbox" name="ck" value="삼성전자 QLED KQ58,2192810"><span name ="pname">삼성전자 QLED KQ58</span> <span name="pprice">2192810</span><br> 
+<input onclick="addproduct(this.checked)"  type="checkbox" name="ck" value="LG전자 올레드evo,2732230"><span name ="pname">LG전자 올레드evo</span> <span name="pprice">2732230</span><br>
+<input onclick="addproduct(this.checked)"  type="checkbox" name="ck" value="이스트라 스마트 TV,359000"><span name ="pname">이스트라 스마트 TV</span> <span name="pprice">359000</span><br>
+<input onclick="addproduct(this.checked)"  type="checkbox" name="ck" value="LG전자 울트라 HD,790000"><span name ="pname">LG전자 울트라 HD</span> <span name="pprice">790000</span><br>
+최종 결제 금액 : <input type="text" readonly="readonly" name="ptotal" style="border: none"><br>
+<input type="button" onclick="Checkout()" value="결제하기">
+</div>
+</form>
+
+</body>
+<script >
+function addproduct(c){
+	 var parr = frm.ck;
+	 var w = 0;
+	 var total=0;
+	 while(w<parr.length){
+		 if(parr[w].checked==true){
+			 var stChange = parr[w].defaultValue.split(",");
+			 total+=Number(stChange[1]);
+		 }
+		 w++;
+	 }
+		 frm.ptotal.value=total;
+}
+function Checkout(){
+	var pd = document.getElementsByName("ck");
+	console.log(pd.length);
+	
+
+	var w = 0;
+	var count = 0;
+
+	while (w < pd.length) {
+			if (frm.ck[w].checked == true) {
+				count++;
+			}
+			w++;
+		}
+	if(count==0){
+		alert("한 가지 이상 상품을 선택해야합니다..");
+	}
+	else{
+		frm.submit();
+		
+	}
+
+
+
+	}
+</script>
+</html>

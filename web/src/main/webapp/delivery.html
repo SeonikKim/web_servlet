@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배송 정보 입력 시스템</title>
+</head>
+<body>
+<!-- 
+servlet, spring, spring-boot => properties, xml(4개)
+
+
+1. action : 상대경로(자신의 서버pc)
+1. action : 절대경로(다른 pc)http:// ~ 
+
+2. web.xml : 주의사항 servlet을 생성 전에 미리 코드 입력 금지
+
+3. .do, .jsp 사용하는 예시
+	3-1. 로그인(html) -> .do -> 로그인메시지 -> 메인
+	3-2. 회원가입(html) -> .do -> (1)회원가입 메시지 or (2)회원정보 view + 회원가입 완료 버튼 -> login.html or 자동로그인 -> 메인
+	(2)의 경우는 .jsp 필요
+	3-3. 게시판(html) -> 글쓰기 -> write.html -> writeok.do -> 게시물 완료 메시지 ->
+	(1)게시판 리스트 화면 or (2)자신이 등록한 게시글 내용
+	(2)의 경우는 .jsp 필요
+	
+	3-4. .do만들 때 주의 -> web.xml -> web.product -> /productlist.do
+		-> http://localhost:8080/web/productlist.do
+		-> http://localhost:8080/web/productlist.jsp
+	
+ -->
+<form action="./deliveryok.do" id="frm" method="post">
+고객명 : <input type="text" name="mname"><br>
+이메일 : <input type="text" id="mail1">@<input type="text" id ="mail2"><br>
+연락처 : <input type="text" id="tel1" maxlength="3">-<input type="text" id="tel2" maxlength="4">-<input type="text" id="tel3" maxlength="4"><br>
+주소 : <input type="text" name ="maddress"><br>
+<!-- type="hidden : FE, BE가 서로 약속한 값을 주고 받는 역할 -->
+<input type="hidden" name="mtel">
+<input type="hidden" name="memail">
+<input type="button" value="배송입력" onclick="info_ok()">
+</form>
+</body>
+<script src="./delivery.js"></script>
+</html>

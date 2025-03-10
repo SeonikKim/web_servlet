@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공지사항 글 등록 페이지</title>
+<script src="./ckeditor/ckeditor.js?v=2"></script>
+</head>
+<body>
+<form action="./notice_writeok.do" method="post" id="frm" enctype="multipart/form-data">
+<input type="text" name="subject" placeholder="제목"><br>
+<input type="text" name="writer" placeholder="글쓴이"><br>
+<input type="password" name="pw" placeholder="비밀번호"><br>
+<textarea name="texts" placeholder="내용" id="editor"></textarea><br>
+<input type="file" name="nfile"><br>
+<input type="button" value="등록" onclick="writeck()">
+</form>
+</body>
+<script>
+window.onload = function(){ //window.onload : 현재페이지를 실행 했을 때 발동
+	var ck = CKEDITOR.replace("editor",{
+		width:900,
+		height:400,
+		versionCheck:false
+	});
+}
+</script>
+<script src="./notice_write.js?v=1"></script>
+</html>

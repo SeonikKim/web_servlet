@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모바일 시스템 예제</title>
+</head>
+<body>
+<form id="frm" method="post" action="./mobileok.do" enctype="multipart/form-data">
+<!-- 보안 관련 사항을 체크하는 형태 -->
+<input type="hidden" name="security" value="m">
+<p>모바일 전용 상품 리뷰</p>
+고객명 : <input type="text" name="mname"><br>
+상품명 : <input type="text" name="pname"><br>
+별점 : <select name="star">
+<option value="1">1점</option>
+<option value="2">2점</option>
+<option value="3">3점</option>
+<option value="4">4점</option>
+<option value="5">5점</option>
+</select><br>
+<!-- 
+모바일 전용 device i/o
+accept="image/*", capture="camera" : 카메라로 사진 바로 찍어서 사용하게끔 
+accept="video/*", capture="camcoder" : 영상으로
+accept="audio/*", capture="microphone" 녹음으로.. 근데 아이폰 안되는듯?
+-->
+리뷰이미지 : <input type="file" name="mfile" accept="image" capture="camera"><br>
+리뷰 내용 : <textarea name="mtext"  rows="2" cols="50" style="width: 90%;"></textarea>
+<input type="button" value="리뷰등록" id="btn">
+</form>
+</body>
+<script src="./mobile.js"></script>
+</html>
+
+<!-- 
+js : 
+onclick, onsubmit, onchange, onkeypress, onkeyup, onkeydown
+
+es : addEventListener 핸들링
+
+
+
+
+
+ -->

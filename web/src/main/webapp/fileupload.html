@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>첨부파일을 사용하는 방법</title>
+</head>
+<body>
+	<!-- 파일기능을 사용하면 무조건 post 
+multiple : 여러 파일을 사용할 때 사용하는 옵션
+enctype="multipart/form-data" : 첨부파일을 BE에 전송 시 필요한 옵션
+-->
+	<form id="frm" method="post" action="./fileupload.do"
+		enctype="multipart/form-data">
+		첨부파일 : <input type="file" name="mfile"><br>
+		<button type="button" onclick="upload()">파일업로드</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="./multifile.do" id="f" method="post"
+		enctype="multipart/form-data">
+		사용자명 : <input type="text" name = "mname"><br>
+		첨부파일 : <input type="file" name="mfiles" accept="image/*" multiple="multiple"> *
+		최대 5개까지만 업로드 가능합니다.<br>
+		<!-- 첨부파일 : <input type="file" name="files"><br> -->
+		<!-- 첨부파일 : <input type="file" name="files"><br> -->
+
+		<button type="button" onclick="upload2()">파일 업로드 2</button>
+	</form>
+</body>
+<script>
+	function upload() {
+		frm.submit();
+	}
+
+	function upload2() {
+		// 	var file2 = document.getElementsByName("mfiles");
+		// 	console.log(file2[0].files.length);
+		// 	var w = 0;
+		// 	while(w<file2[0].files.length){
+
+		// 		console.log(file2[0].files[w].name);
+		// 		w++;
+
+		// 	}
+
+		//files(속성) : multiple에서만 사용하며 여러개를 선택 시 각 배열로 구분하여 설정 = split
+		// var file =f.mfiles.files;
+		var file = document.getElementsByName("mfiles")[0].files;
+		if (file.length > 5) {
+			alert("첨부파일 갯수는 최대 5개 까지입니다.");
+		} else {
+			var w = 0;
+			count = 0;
+			while (w < file.length) {//첨부파일 갯수만큼 반복문을 작동시켜 파일 각각의 용량 체크
+				var size = file[w].size;
+				console.log(size);
+				if (size > 2097152) {
+					count++;
+				}
+				w++;
+			}
+			//반복문으로 2MB이상의 파일이 있는 경우 확인
+			if (count != 0) {
+				alert("첨부파일 용량이 2MB 이상입니다.");
+			} else {
+				f.submit();
+
+			}
+		}
+		// 	f.submit();
+	}
+</script>
+</html>

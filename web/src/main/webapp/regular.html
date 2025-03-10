@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript 기준 정규식 코드 사용법</title>
+</head>
+<body>
+
+</body>
+<script>
+
+	//정규식 코드 : replace, replaceAll, test, match, exec, split, search, 
+	/*
+	 정규식 코드 옵션
+	 g : 전체 문자열을 파악
+	 i : 대,소문자 동일하게 인식
+	 ^ : 부정의 뜻을 가짐 == NOT
+	 / : 문자를 구분하여 설정
+	 [] : 문자열의 배열 범위 [a-z] 
+	 {} : 패턴 형태 문자 자릿수 범위
+	 */
+
+	/*
+	var word = "a12345A6aAbz001a";
+	//정규식 코드 패턴 //replace
+	var regp = /a/gi; 
+
+	console.log(word.replace(regp,""));
+
+	//trim(정규식 아님) : 앞 뒤 공백 없애기
+	var word = " 1 a 2 c 3 d ";
+	console.log(word);
+	console.log(word.trim());
+	var regp =/ /g;
+	console.log(word.replace(regp,""));
+	 */
+
+	/*
+	//test : true, false
+	var word = "010-a*a/1234b5678";
+	//  var regp=/[a-z]/g; // a~z까지 문자가 있는지 확인
+	var regp=/[^0-9]/g;// 0~9까지 문자 외에 다른 문자가 있는지 확인
+	console.log(regp.test(word));
+
+	var word ="홍길동";
+	var regp=/[^ㄱ-힣a-zA-Z()]/g;
+	console.log(regp.test(word));
+	 */
+
+	/*
+	//match : 배열로 체크 null => 값이 없음
+	var word ="hong@nate.com";
+	var regp = /[@.]/g;
+	console.log(word.match(regp));
+	 */
+
+	 /*
+	//exec : 배열로 체크 null => 값이 없음 // match, exec 비슷함
+	var word = "hong@gmail.com";
+	var regp = /[a-z]/g;
+	console.log(regp.exec(word));
+	 */
+	 
+	 /*
+	 //test 정규식을 이용하여 패턴과 함께 단어 체크
+	 var word = "hong@naver.com";
+	 var word2 = word.replace(/ /g,"");//공백 삭제
+
+	 var regp = /^[a-z0-9.-_]+\@[a-z0-9ㄱ-힣]+\.[a-zㄱ-힣0-9]{2,}/i;
+	 console.log(regp.test(word2));
+	 */
+	 
+	 /*
+	 //전화번호 체크 (전화 : 9 ~ 11 휴대폰 : 10~11)
+	 var word = "0233334444";
+	 var word2 = word.replace(/ /g,""); // 모든 공백 제거
+	 if(word2.length<9){
+		 console.log("정상적인 번호를 입력하세요");
+	 }else{
+		 var regp = /[^0-9]/g;
+		 var chk = regp.test(word2);
+		 if(chk==true){
+			 console.log("숫자만 입력하세요");
+		 }else{
+			 console.log("굿뽀이");
+		 }
+		 
+	 }
+	 */
+	 
+	 //휴대폰 체크
+	 var word = "01022225555";
+	 if(word.length<10 || word.length>11){
+		 console.log("올바른 번호를 입력하세요.");
+	 }
+	 else{
+		 var regp=/^01\d{8,9}/g;
+		 var chk = regp.test(word);
+		 if(chk==true){
+			 console.log("트루트루");
+		 }else{
+			 console.log("폴스폴스");
+		 }
+		 
+	 }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>web</display-name>
+  <servlet>
+  <servlet-name>noticeok</servlet-name>
+  <servlet-class>review.noticeok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>noticeok</servlet-name>
+  <url-pattern>/review/noticeok.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  <servlet-name>new_join</servlet-name>
+  <servlet-class>review.new_join</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>new_join</servlet-name>
+  <url-pattern>/review/new_join.do</url-pattern>
+  </servlet-mapping>
+  
+  
+      <servlet>
+  <servlet-name>io_ok</servlet-name>
+  <servlet-class>review.io_ok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>io_ok</servlet-name>
+  <url-pattern>/review/io_ok.do</url-pattern>
+  </servlet-mapping>
+  
+  
+       <servlet>
+  <servlet-name>coupon</servlet-name>
+  <servlet-class>review.coupon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>coupon</servlet-name>
+  <url-pattern>/review/couponok.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>

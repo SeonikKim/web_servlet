@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - Jquery(GET)</title>
+<script src="./jquery.js"></script>
+<script>
+$(function(){
+
+	var $data; //Ajax에서 리턴 받는 결과값(BE가 주는 내용)
+		$("#btn").click(function() {
+			var $mid = $("#mid").val();
+			if ($mid == "") {
+				alert("아이디를 입력해야합니다.");
+			}else {//ajax <-> Jquery용(GET)
+				//아래 세가지 방식으로 사용 가능
+				$.ajax({
+					url : "../shop/idcheck.do?sid="+$mid,//BE경로
+					cache : false,//기본은 true, false: 자동으로 캐시 갱신
+					type : "GET",//통신 방식(GET, POST, PUT, DELETE)
+					dataType : "HTML",//TXT, HTML, JSON, XML
+					success : function($data){ //통신 성공 및 return값 처리
+						console.log($data);
+					},
+					error : function(){
+						console.log("통신에러"); //BE와 통신 에러 시
+					}
+				});
+// 				$.get({//GET전용
+
+// 				});
+// 				$.post({//POST전용
+					
+// 				});
+			}
+		});
+
+	});
+</script>
+</head>
+<body>
+아이디 : <input type="text" id="mid"><input type="button" value="중복체크" id="btn">
+</body>
+</html>

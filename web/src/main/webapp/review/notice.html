@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+ JavaScript : 4.0ver까지 나옴 => PC용 => mobile(X) =>var => 
+ 
+ ECMAScript(es) : JS 업데이트 버전 => let(변수),const(상수)
+ 
+ var aa = function(), class => es4
+ 
+ ES5 => JS5.0 => Jquery(x) => App => ES6
+ 
+ Angular, React, Vue => 
+  
+  -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 글쓰기</title>
+</head>
+<body>
+<form id ="frm" method="post" action="./noticeok.do"><!-- get은 2^10 길이의 한계가 있음..  -->
+<input type="hidden" name="se" value="korea.com">
+제목 : <input type="text" name="subject"><br>
+글쓴이 : <input type="text" name="writer"><br>
+내용 : <textarea name="wtext" style="width: 500px; height: 300px;"></textarea><br>
+<input type="button" value="글 등록" onclick="notice_writer()">
+</form>
+
+</body>
+<script src="./notice.js?v=001"></script>
+</html>

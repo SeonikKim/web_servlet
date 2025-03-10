@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 예매 시스템</title>
+</head>
+<body>
+	<form id="frm" action="./movie.do" method="post">
+		영화 예매 시스템<br>
+		<p>
+			고객명 : <input type="text" name="uname" required="required"><br>
+		</p>
+		<p>
+			연락처: <input type="text" name="uphone" maxlength="11"> * 전화번호는
+			숫자만 입력 가능합니다~ <br>
+		</p>
+
+		<p>
+			영화선택<br> <input type="radio" value="히트맨2" name="mov">히트맨2<br>
+			<input type="radio" value="써니데이" name="mov">써니데이<br> <input
+				type="radio" value="브루탈리스트" name="mov">브루탈리스트<br> <input
+				type="radio" value="히어" name="mov">히어<br> <input
+				type="radio" value="하얼빈" name="mov">하얼빈<br>
+		</p>
+		<p>
+			예매일자 : <input type="date" name="resdate" required><br>
+		</p>
+
+
+
+
+		<input type="button" value="예매하기" onclick="res()"
+			style="background: #156082; color: #fff">
+	</form>
+</body>
+<script>
+	function res() {
+		var uname = frm.uname;
+		var uphone = frm.uphone;
+		var resdate = frm.resdate;
+		var mov = frm.mov;
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = (today.getMonth() + 1).toString().padStart(2, '0');
+		var day = today.getDate().toString().padStart(2, '0');
+		const yyyymmdd = `${year}-${month}-${day}`;
+
+// 		console.log("예약" + resdate.value);
+		if (uname.value == "") {
+			alert("고객명을 입력하세요..");
+			uname.focus();
+		} else if (uphone.value == "") {
+			alert("연락처를 입력하세요..");
+			uphone.focus();
+		} else if (isNaN(uphone.value)) {
+			alert("숫자만 입력 가능합니다..");
+			uphone.focus();
+		}
+
+		else if (mov.value == "") {
+			alert("영화를 선택해주세요");
+		} else if (resdate.value == "") {
+			alert("날짜를 선택해주세요.");
+			resdate.focus();
+		} else if (resdate.value < yyyymmdd) {
+			alert("날짜는 오늘 이후만 선택 가능합니다.");
+			resdate.focus();
+		} else {
+			frm.submit();
+
+		}
+
+	}
+</script>
+</html>

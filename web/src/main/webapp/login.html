@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet + login</title>
+</head>
+<body>
+	<form id="frm" method="post" action="./loginok.do">
+	<!-- name속성은 BE에게 전달되는 속성입니다. -->
+		아이디 : <input type="text" name="mid"><br> 
+		패스워드 : <input	type="password" name="mpass"><br> 
+		<input type="submit" value="로그인">
+	</form>
+</body>
+<script>
+//form 사용 및 name 속성 이름을 이미 선언하였으므로 getElementById 없이 사용함
+//return 사용한 이유는 input이 submit이라서..
+function ck() {
+	if(frm.mid.value==""){
+		alert("아이디를 입력하세요!");
+		frm.mid.focus();
+		return false;
+		
+	}
+	else if(frm.mpass.value==""){
+		alert("비밀번호를 입력하세요!");
+		frm.mpass.focus();
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+required : submit에서 사용 가능, 필수로 값을 받는 속성
+pattern : = regex..
+ -->
+	<form id="frm" method="post" action="./idsearch.do" onsubmit="return chk()">
+		고객명 : <input type="text" name="uname" required><br> 연락처: <input
+			type="tel" name="uphone" pattern="(010|011)\d{3,4}\d{4}" maxlength="11" required> "-"미포함 숫자만 입력하세요<br> 이메일 : <input
+			type="text" name="umail" pattern="^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-가-힣]+\.[a-zA-Z가-힣]{2,}$" required><br> 
+			<input type="submit" value="아이디 찾기">
+	</form>
+</body>
+<script>
+	function chk() {
+		if (frm.uname.value == "") {
+			alert("고객명을 입력하세요");
+			frm.uname.focus();
+			console.log("Asdasd");
+			return false;
+		} else if (frm.uphone.value == "") {
+			alert("전화번호를 입력하세요");
+			frm.uphone.focus();
+			return false;
+		} 
+
+		else if (frm.umail.value == "") {
+			alert("메일을 입력하세요");
+			frm.umail.focus();
+			return false;
+		} else {
+			frm.submit();
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jquery 사용법</title>
+<!-- JQuery 엔진을 로드 -->
+<script src="./jquery.js"></script>
+<script>
+	// $(document).ready(function(){
+	$(function() {//축약 ver
+	// 	$(()=>{	//더 축약 ver
+
+		// 	var $a = "홍길동";
+		// 	console.log($a);
+		//# => id, . => class
+		$("#btn").click(function() { //id 속성으로 이벤트 핸들링
+			console.log("id test!!");
+		});
+		$(".btn").click(function() { //class 속성으로 이벤트 핸들링
+			console.log("class test!!");
+		});
+
+		$("#btn2").click(function() {
+			// 	if(frm.mid.value==""){//폼이 있을 때
+			// 		alert("아이디를 입력하세요!");
+			// 	}
+
+			// var $m = $("#mid").val(); // 값 가져오기
+			// console.log($m);
+			// $("#mid").val("홍길동"); //값 넣기
+
+			var $m = $("#mid").val(); // 값 가져오기
+			if ($m == "") {
+				alert("아이디를 입력하세요.");
+				$("#mid").focus();
+			} else {
+				location.href = "./jq2.html";
+			}
+
+		});
+		//click, submit, change 다 있음
+		$("#btn3").click(function() {
+			$abc();
+			abc();
+
+		});
+		$abc = function() { //일반 Jquery 함수
+			console.log("TEST#@@@@");
+		}
+		function kkk() {
+			console.log("kkk함수임다.");
+		}
+	});
+	function abc() { //js함수
+		console.log("TEST!!!");
+
+	}
+	function zzz() {
+		$abc();
+// 		kkk(); // Jquery안에 js함수 호출 X 
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="클릭" id="btn">
+	<br>
+	<input type="button" value="클릭" class="btn">
+	<br>
+	<br>
+	<br>
+	<!-- <form id="frm"> -->
+	<input type="text" name="mid" id="mid">
+	<input type="button" value="중복체크" id="btn2">
+	<br>
+	<br>
+	<br>
+	<input type="button" value="핸들링" id="btn3">
+	<input type="button" value="핸들링2" onclick="zzz()">
+
+	<!-- </form> -->
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+  <display-name>web</display-name>
+  
+  <servlet>
+  <servlet-name>join_ok</servlet-name>
+  <servlet-class>shop.join_ok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>join_ok</servlet-name>
+  <url-pattern>/shop/join_ok.do</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  <servlet-name>idcheck</servlet-name>
+  <servlet-class>shop.idcheck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>idcheck</servlet-name>
+  <url-pattern>/shop/idcheck.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>shop_loginok</servlet-name>
+  <servlet-class>shop.shop_loginok</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  <servlet-name>shop_loginok</servlet-name>
+  <url-pattern>/shop/shop_loginok.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  <servlet-name>notice_writeok</servlet-name>
+  <servlet-class>notice.notice_writeok</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  <servlet-name>notice_writeok</servlet-name>
+  <url-pattern>/notice/notice_writeok.do</url-pattern>
+  </servlet-mapping>
+
+	<servlet>
+  <servlet-name>notice_list</servlet-name>
+  <servlet-class>notice.notice_list</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  <servlet-name>notice_list</servlet-name>
+  <url-pattern>/notice/notice_list.do</url-pattern>
+  </servlet-mapping>
+  
+  	<servlet>
+  <servlet-name>notice_view</servlet-name>
+  <servlet-class>notice.notice_view</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  <servlet-name>notice_view</servlet-name>
+  <url-pattern>/notice/notice_view.do</url-pattern>
+  </servlet-mapping>
+  
+    	<servlet>
+  <servlet-name>mailok</servlet-name>
+  <servlet-class>mail.mailok</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  <servlet-name>mailok</servlet-name>
+  <url-pattern>/mail/mailok.do</url-pattern>
+  </servlet-mapping>
+  
+
+
+	<servlet>
+		<servlet-name>event_infook</servlet-name>
+		<servlet-class>event.event_infook</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>event_infook</servlet-name>
+		<url-pattern>/event/event_infook.do</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

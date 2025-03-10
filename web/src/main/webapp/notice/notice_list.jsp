@@ -19,8 +19,13 @@
 
 		float pg2 = Integer.parseInt(total_page) / 3f ;//풀어쓰기 ver
 		pg = (int)Math.ceil(pg2);
-		out.print(pg);
+// 		out.print(pg);
 	}
+	String pno = request.getParameter("pageno");//최초 리스트 페이지에 접근 시 페이지 번호가 없을 수 있음 또는 페이지 번호 1을 클릭했을 경우
+	if(pno == null || pno.equals("1")){
+		pno="1";
+	}
+	out.print(pno);
 	
 	%>
 <!--   VIEW    -->
@@ -43,8 +48,9 @@
 			</tr>
 		</thead>
 		<%
-		int total = notice.size(); //번호 출력용 // 야매로 한거임
-		for(int f = 0; f<notice.size(); f++){
+		//게시글 번호 : ㄴ 총 데이터 갯수 - ((페이지 번호 - 1 ) * 한 페이지 당 출력 갯수)
+		int total = Integer.parseInt(total_page) - ((Integer.parseInt(pno) - 1) * 3);
+		for (int f = 0; f < notice.size(); f++) {
 		%>
 		<tbody>
 			<tr height="30" align="center">

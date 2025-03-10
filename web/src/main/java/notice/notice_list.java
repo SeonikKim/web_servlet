@@ -17,6 +17,7 @@ public class notice_list extends HttpServlet {
 	//List는 프론트에서 값을 받아서 띄우는게 아니기 때문에 꼭 ! doGet으로 해야합니다 ~ 
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		String pageno = rq.getParameter("pageno");//사용자가 페이지 번호를 클릭 시 해당 값을 받는 역할
+		
 		if(pageno==(null) || pageno.equals("1")) { //최초 해당 페이지 접속 시 pageno를 0으로 처리함
 			pageno="0";
 		}

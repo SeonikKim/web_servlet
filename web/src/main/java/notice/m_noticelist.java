@@ -27,7 +27,13 @@ public class m_noticelist {
 	
 	
 	public m_noticelist(int s) {
-		this.spage=s; //sql 쿼리 limit를 사용하기 위함
+		if(s > 0) {//1번 페이지 번호 외 번호 클릭 시
+			//(페이지 번호 -1) * 한 페이지당 출력할 갯수
+			this.spage=(s-1)*this.ea;
+		}
+		else {
+			this.spage=s; //sql 쿼리 limit를 사용하기 위함			
+		}
 	}
 
 	public ArrayList<ArrayList<String>> db_data() {

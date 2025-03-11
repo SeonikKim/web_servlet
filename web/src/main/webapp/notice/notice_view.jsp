@@ -47,6 +47,7 @@ if(views.get(5)!=null){//첨부파일이 있을 경우만 해당 태그가 작�
 %>
 <span class="n">첨부파일 <div class="data1"><%=views.get(5)%>
 <a href="../notice_files/<%=views.get(5)%>" target = "_blank"></a>
+<%-- <img src="../notice_files/<%=views.get(5)%>"></img> --%>
 </div></span><br>
 <%} %>
 <br><br>

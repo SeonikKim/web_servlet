@@ -24,7 +24,7 @@ public class notice_view extends HttpServlet {
 		
 		ArrayList<String> notice_v = nv.db_data;
 		rq.setAttribute("notice_v", notice_v);
-		System.out.println(notice_v);
+//		System.out.println(notice_v);
 		
 		RequestDispatcher rd = rq.getRequestDispatcher("./notice_view.jsp");
 		rd.forward(rq, rp);

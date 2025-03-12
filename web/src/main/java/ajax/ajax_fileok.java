@@ -31,7 +31,7 @@ public class ajax_fileok extends HttpServlet {
 		
 		
 		String url = rq.getServletContext().getRealPath("/upload/");
-//		System.out.println(url);
+//		System.out.println(url); // 파일 저장 경로
 		mfile.write(url+filenm);
 		this.pw.print("ok");
 		

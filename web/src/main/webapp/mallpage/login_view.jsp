@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <script src="./login_view.js?v=1"></script>
-<div class="products">
+ <script src="./login_view.js?v=1"></script>
+ <div class="products">
       <h3>MEMBER_LOGIN</h3>
       <div class="sub_view">
-        <div class="loginview">
+         <div class="loginview">
           <span class="member_l"></span>
           <span class="login">
           <form id="frm" method="post" action="./loginok.do" onsubmit="return loginck()">   

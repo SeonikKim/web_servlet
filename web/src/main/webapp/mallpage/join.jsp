@@ -9,22 +9,19 @@
     <link href="./subpage.css" rel="stylesheet" />
     <link href="./agree.css?v=1" rel="stylesheet" />
     <link href="./join.css?v=1" rel="stylesheet" />
-    <link href="./menu.css?v=1" rel="stylesheet" />
+    <link href="./menu.css?v=1" rel="stylesheet"/>
   </head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
-	<!-- 상단 로고 & 메뉴 -->
-	<%@ include file="./top.jsp"%>
-	<!-- 상단 로고 & 메뉴 -->
-	<main>
-		<%@ include file="./join_view.jsp"%>
-	</main>
-	<!-- 푸터 -->
-	<footer>
-		<%@ include file="./footer.jsp"%>
-	</footer>
-	<!-- 푸터 -->
+<!-- 상단 로고 & 메뉴 -->
+<%@include file="./top.jsp" %>
+<!-- 상단 로고 & 메뉴 -->
+<main>
+<%@include file="./join_view.jsp" %>
+</main>
+<!-- 카피라이터 및 하단 -->
+<footer>
+<%@include file="./footer.jsp" %>     
+</footer>
+<!-- 카피라이터 및 하단 -->
 </body>
 </html>

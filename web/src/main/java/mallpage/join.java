@@ -13,26 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/mallpage/join.do")
 public class join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
-
-		footers ft = new footers();// abstract를 사용하여 copyright model의 데이터를 가져옴
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		footers ft = new footers();
 		ft.fts();
-		rq.setAttribute("cpdata", ft.cpdata);
+		request.setAttribute("cpdata", ft.cdata);
 		
-		RequestDispatcher rd = rq.getRequestDispatcher("./join.jsp");
-		rd.forward(rq, rp);
-
+		RequestDispatcher rd = request.getRequestDispatcher("./join.jsp");
+		rd.forward(request, response);
 	}
-
 }
 
 class footers extends ab_footer {
 	public footers() {
 		this.fts();
 	}
-@Override
-public void fts() {
-	super.fts();
+	@Override
+	public void fts() {
+		super.fts();
+	}
 }
-}
+
+
+

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-s">
  <div class="products">
       <h3>MEMBER_JOIN</h3>
       <div class="sub_view">

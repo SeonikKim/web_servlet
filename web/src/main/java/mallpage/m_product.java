@@ -10,7 +10,7 @@ import shop.m_dbinfo;
 
 public class m_product {
 	//DTO (setter,getter)
-	dto_product pd = new dto_product();
+	dto_product pd = new dto_product(); // void 메서드일 경우 Controller에서 가져가는 dto임
 	
 	ArrayList<ArrayList<String>> all = null;
 	ArrayList<String> al = null;
